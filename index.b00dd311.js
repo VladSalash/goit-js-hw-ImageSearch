@@ -1,0 +1,2 @@
+new class{async getFetchRequest(){const e=`https://pixabay.com/api/?key=29791445-a3e2bb5b00c4bcebfee57452f&q=${this.searchQuery}&image_type=photo&orientation&safesearch&page=${this.page}`;try{const t=await axios.get(e);await t.data,await this.getArrayOfPhoto;console.log(t)}catch(e){console.error(e)}}resetPage(){this.page=1}constructor(){this.searchQuery="",this.page=1}};
+//# sourceMappingURL=index.b00dd311.js.map
