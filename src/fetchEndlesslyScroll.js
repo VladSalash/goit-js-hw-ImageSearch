@@ -1,4 +1,4 @@
-const axios = require('axios').default;
+// const axios = require('axios').default;
 // const API_KEY = '29791445-a3e2bb5b00c4bcebfee57452f';
 // const URL = `https://pixabay.com/api/key=${API_KEY}&q=`;
 // const URL = `https://pixabay.com/api/?key=${API_KEY}&q=${this.searchQuery}&${OPTIONS}&page=${this.page}`;
