@@ -23,7 +23,8 @@ export function articlesTpl(hits) {
                   </div>
               </div>
         `
- }).join('');
+  }).join('');
+
 }
 
 

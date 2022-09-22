@@ -7,10 +7,9 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #fafafa; */
-  color: #212121;
+  background-image: url(/img/augustine-wong-LfU6_b3Oj4E-unsplash.jpg);
+  color: #000000;
   line-height: 1.5;
-  /* justify-content: center; */
 }
 /* FORM */
 .search-form {
@@ -22,14 +21,14 @@ body {
   text-align: center;
   height: 32px;
   display: block;
-  background-color: hsl(229, 91%, 67%);
+  background-color: hsl(0, 0%, 22%);
 }
 /* BUTTON LOAD_MORE */
 .load-more {
   /* visibility: hidden; */
   margin: 0 auto;
   display: block;
-  background-color: hsl(229, 91%, 67%);
+  background-color: hsl(0, 0%, 59%);
 }
 .load-more.is-hidden {
   display: none;
@@ -52,20 +51,24 @@ body {
 /* DIV GALLERY */
 .gallery {
   display: grid;
-  /* max-width: 1140px; */
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 30px;
   padding: 10px;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 /* DIV__CARD */
 .photo-card {
   height: 100%;
   overflow: hidden;
-  box-shadow: 1px 2px 3px hsla(0, 0%, 13%, 0.295);
+  /* box-shadow: inset -10px -10px 15px rgba(209, 209, 209, 0.5),
+    inset 10px 10px 15px rgba(175, 175, 175, 0.12); */
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 15px rgba(70, 70, 70, 0.12);
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #211221;
 }
 /* LINK */
 .photo-link {
@@ -82,6 +85,8 @@ body {
 /* LI__ */
 .info {
   display: flex;
+  background-color: #ffffff;
 }
 .info-item {
+  font-size: 14px;
 }

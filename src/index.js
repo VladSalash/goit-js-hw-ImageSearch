@@ -83,6 +83,9 @@ function appendArticlesMarkup(hits) {
 }
   let gallerySimpleLightBox = new SimpleLightbox('.gallery  a', options.simpleLightBox);
   gallerySimpleLightBox.refresh();
+
+
+
 }
 // RESET //
 function clearArticlesContent() {
