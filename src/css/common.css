@@ -69,9 +69,9 @@ body {
   align-items: center; */
 
   overflow: hidden;
-  /* box-shadow: inset -10px -10px 15px rgba(209, 209, 209, 0.5),
-    inset 10px 10px 15px rgba(175, 175, 175, 0.12); */
-  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+  /* box-shadow: inset -10px -10px 15px rgba(82, 82, 82, 0.5),
+    inset 10px 10px 15px rgba(37, 37, 37, 0.12); */
+  box-shadow: -10px -10px 15px rgba(150, 150, 150, 0.5),
     10px 10px 15px rgba(70, 70, 70, 0.12);
   border-radius: 5px 5px 5px 5px;
   border: 2px solid #646464;
