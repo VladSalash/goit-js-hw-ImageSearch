@@ -4,9 +4,11 @@ export function articlesTpl(hits) {
   return hits.map(({webformatURL,largeImageURL,tags,likes, views, comments, downloads }) => {
    return `
               <div  class="photo-card">
+              <div class="photo-card-change">
                   <a class= "photo-link" href="${largeImageURL}">
                   <img class="photo-image" src="${webformatURL}" alt="${tags}" loading="lazy" />
                   </a>
+                  </div>
                     <div class="info">
                     <p class="info-item">
                       <b>Likes: ${likes}</b>

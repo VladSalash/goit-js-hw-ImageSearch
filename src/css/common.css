@@ -61,7 +61,13 @@ body {
 }
 /* DIV__CARD */
 .photo-card {
+  /* Блок картинки */
+  /* width: 100%;
   height: 100%;
+  display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+
   overflow: hidden;
   /* box-shadow: inset -10px -10px 15px rgba(209, 209, 209, 0.5),
     inset 10px 10px 15px rgba(175, 175, 175, 0.12); */
@@ -70,11 +76,26 @@ body {
   border-radius: 5px 5px 5px 5px;
   border: 1px solid #211221;
 }
+.photo-card-change {
+  /* width: 300px; */
+  height: 300px;
+  position: relative;
+  perspective: 1000px;
+  border: 1px solid #d68360; /* Рамка */
+}
+
+.photo-card-change :hover .photo-image {
+  transform: rotateY(180deg);
+}
+.photo-card-change :hover .photo-image {
+  transform: rotateY(360deg);
+}
 /* LINK */
 .photo-link {
   text-decoration: none;
   color: #2a2a2a;
 }
+
 /* IMAGE */
 .photo-image {
   display: block;
@@ -82,9 +103,28 @@ body {
   height: 200px;
   object-fit: cover;
 }
+/* Стороны изображения */
+.photo-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  back-side-imgface-visibility: hidden;
+}
+
+.photo-image img {
+  max-width: 100%;
+  min-width: 100%;
+  height: auto;
+}
+
 /* LI__ */
 .info {
   display: flex;
+  text-align: center;
   background-color: #ffffff;
 }
 .info-item {
