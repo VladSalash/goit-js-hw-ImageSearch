@@ -62,7 +62,7 @@ async function fetchArticles() {
   loadMoreBtn.show();
 // CHECKING END OF COLLECTION //
   const cards = document.querySelectorAll('.photo-card')
-  if (res.totalHits !== 0 && res.totalHits - cards.length <= 40 ) {
+  if (res.totalHits !== 0 && res.totalHits - cards.length === 0 ) {
     loadMoreBtn.hide();
   Notify.warning("We're sorry, but you've reached the end of search results.");
     return;
