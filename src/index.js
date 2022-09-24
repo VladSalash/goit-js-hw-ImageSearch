@@ -62,11 +62,12 @@ async function fetchArticles() {
   loadMoreBtn.show();
 // CHECKING END OF COLLECTION //
   const cards = document.querySelectorAll('.photo-card')
-  if (res.totalHits !== 0 && res.totalHits - cards.length === 0 ) {
+  if (res.totalHits - cards.length === 0 ) {
     loadMoreBtn.hide();
-  Notify.warning("We're sorry, but you've reached the end of search results.");
+  Notify.info("We're sorry, but you've reached the end of search results.");
     return;
   }
+  // res.totalHits !== 0 &&
 // CHECKING THE NUMBER OF IMAGES FOUND //
 if (newsApiService.page === 2) {
   Notify.success(`Hooray! We found ${res.totalHits} images.`);
