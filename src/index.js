@@ -61,7 +61,8 @@ async function fetchArticles() {
   appendArticlesMarkup(res.hits);
   loadMoreBtn.show();
 // CHECKING END OF COLLECTION //
-  if ( res.hits.length < 40 ) {
+  const cards = document.querySelectorAll('.photo-card')
+  if (res.totalHits !== 0 && res.totalHits - cards.length <= 40 ) {
     loadMoreBtn.hide();
   Notify.warning("We're sorry, but you've reached the end of search results.");
     return;
