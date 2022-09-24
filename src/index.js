@@ -23,7 +23,6 @@ const loadMoreBtn = new LoadMoreBtn({
   hidden: true,
 });
 const newsApiService = new NewsApiService();
-const loadMore = document.querySelector('.load-more');
 
 refs.form.addEventListener('submit', onSearch);
 loadMoreBtn.refs.button.addEventListener("click", onLoadMore);
@@ -55,14 +54,14 @@ async function fetchArticles() {
   const res = await newsApiService.fetchArticles()
   console.log(newsApiService.page);
   // CHECKING FOR BAD REQUEST //
-  if (res.hits.length === 0) {
+  if (res.totalHits === 0) {
   Notify.failure('Sorry, there are no images matching your search query. Please try again.');
     return;
   }
   appendArticlesMarkup(res.hits);
   loadMoreBtn.show();
 // CHECKING END OF COLLECTION //
-  if ( res.totalHits < 40) {
+  if ( res.hits.length < 40 ) {
     loadMoreBtn.hide();
   Notify.warning("We're sorry, but you've reached the end of search results.");
     return;
