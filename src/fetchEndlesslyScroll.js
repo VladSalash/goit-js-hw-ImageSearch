@@ -20,7 +20,8 @@ export default class NewsApiService {
         console.log(response);
      }
     catch (error) {
-    console.error(error);
+      console.error(error);
+      Notify.failure('Something went wrong, please try again...');
   }
 }
 // ///////////////////////////////////////////////////////////////////

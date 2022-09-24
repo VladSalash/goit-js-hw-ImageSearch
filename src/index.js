@@ -34,14 +34,13 @@ loadMoreBtn.refs.button.addEventListener("click", onLoadMore);
 function onSearch(e) {
   e.preventDefault()
 
-  newsApiService.sQuery = e.currentTarget.elements.searchQuery.value;
+  newsApiService.sQuery = e.currentTarget.elements.searchQuery.value.trim();
 
-  if (newsApiService.sQuery === '') {
-  return Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+ if (newsApiService.sQuery === '' ) {
+    Notify.failure('Something went wrong, please try again...');
+    return
   }
 
-
-  loadMoreBtn.show();
   newsApiService.resetPage();
   clearArticlesContent()
   fetchArticles();
@@ -49,25 +48,35 @@ function onSearch(e) {
 // BTN__ON_LOAD_MORE//
 function onLoadMore() {
   fetchArticles();
-
   // scrollBy();
 }
 // FETCH_ARTICLES
 async function fetchArticles() {
-  loadMoreBtn.disable();
   const res = await newsApiService.fetchArticles()
-    appendArticlesMarkup(res.hits);
   console.log(newsApiService.page);
-  if (newsApiService.page === 2) {
-     Notify.success(`Hooray! We found ${res.totalHits} images.`);
+  // CHECKING FOR BAD REQUEST //
+  if (res.hits.length === 0) {
+  Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+    return;
   }
-    if (res.hits.length < 40) {
-      loadMore.classList.add('is-hidden');
-      return Notify.warning("We're sorry, but you've reached the end of search results.");
-    }
-    loadMoreBtn.enable();
-return res
+  appendArticlesMarkup(res.hits);
+  loadMoreBtn.show();
+// CHECKING END OF COLLECTION //
+  if ( res.totalHits < 40) {
+    loadMoreBtn.hide();
+  Notify.warning("We're sorry, but you've reached the end of search results.");
+    return;
+  }
+// CHECKING THE NUMBER OF IMAGES FOUND //
+if (newsApiService.page === 2) {
+  Notify.success(`Hooray! We found ${res.totalHits} images.`);
+  return;
+  }
+
+  loadMoreBtn.enable();
+  return res;
 }
+
 // RENDERING MARKUP //
 function appendArticlesMarkup(hits) {
   refs.cardGallery.insertAdjacentHTML('beforeend', articlesTpl(hits));
