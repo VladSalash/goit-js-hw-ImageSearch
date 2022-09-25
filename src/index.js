@@ -47,6 +47,7 @@ function onSearch(e) {
 // BTN__ON_LOAD_MORE//
 function onLoadMore() {
   fetchArticles();
+  loadMoreBtn.show();
   // scrollBy();
 }
 // FETCH_ARTICLES
@@ -59,7 +60,7 @@ async function fetchArticles() {
     return;
   }
   appendArticlesMarkup(res.hits);
-  loadMoreBtn.show();
+  // loadMoreBtn.show();
 // CHECKING END OF COLLECTION //
   const cards = document.querySelectorAll('.photo-card')
   if (res.totalHits - cards.length === 0 ) {
