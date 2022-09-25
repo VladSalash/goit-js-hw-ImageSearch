@@ -47,7 +47,7 @@ function onSearch(e) {
 // BTN__ON_LOAD_MORE//
 function onLoadMore() {
   fetchArticles();
-  loadMoreBtn.show();
+
   // scrollBy();
 }
 // FETCH_ARTICLES
@@ -60,15 +60,15 @@ async function fetchArticles() {
     return;
   }
   appendArticlesMarkup(res.hits);
-  // loadMoreBtn.show();
+  loadMoreBtn.show();
 // CHECKING END OF COLLECTION //
   const cards = document.querySelectorAll('.photo-card')
-  if (res.totalHits - cards.length === 0 ) {
+  if (res.totalHits !== 0 && res.totalHits - cards.length === 0 ) {
     loadMoreBtn.hide();
   Notify.info("We're sorry, but you've reached the end of search results.");
     return;
   }
-  // res.totalHits !== 0 &&
+
 // CHECKING THE NUMBER OF IMAGES FOUND //
 if (newsApiService.page === 2) {
   Notify.success(`Hooray! We found ${res.totalHits} images.`);
